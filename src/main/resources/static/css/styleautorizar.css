@@ -1,0 +1,103 @@
+@keyframes up 
+{
+from { opacity:0;
+	transform: translateY(0);
+}
+
+50%{
+opacity
+
+
+:
+
+
+1;
+}
+to {
+	opacity: 0;
+	transform: translateY(-800px) rotate(960deg);
+}
+
+}
+.squares li {
+	z-index: 100;
+	background-color: rgba(255, 255, 255, 0.15);
+	position: absolute;
+	animation: up 2s infinite;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+
+.navbar-nav li:hover {
+	background: orange;
+	border-radius: 10px;
+	color: white;
+}
+
+.navbar {
+	box-shadow: 3px 3px 3px yellow;
+}
+
+.navbar-nav {
+	box-shadow: 3px 3px 3px black;
+}
+
+body {
+background-size: auto;
+height:auto;
+	background-image:
+		url('http://getwallpapers.com/wallpaper/full/d/9/f/1500090-ios-7-ipad-wallpapers-2048x2048-for-retina.jpg' );
+}
+
+#trr:hover {
+	background: #236B8E;
+	-webkit-transition: 0.5s ease-out;
+-moz-transition: 0.5s ease-out;
+-o-transition: 0.5s ease-out;
+transition: 0.5s ease-out;
+}
+
+.container {
+	margin-top: 10%;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.6);
+	color: white !important;
+	margin-top: 40px;
+	border-radius: 20px;
+	box-shadow: 3px 3px 3px black;
+	font-family: 'Gotu', sans-serif;
+}
+
+#nav {
+	background: #f19900;
+	border-radius: 10px;
+}
+
+.table {
+	color: white;
+}
+
+#s {
+	display: none;
+}
+#trr th, td{ color: white;}
+
+
+
+@media only screen and (max-width: 1200px) {
+
+#con {
+margin-top: 200px;
+width: 900px;
+height: auto;
+font-size: 18px;
+margin-bottom: 200px;
+justify-content: center ;
+}
+#table{
+width: 697px;
+
+}}
+

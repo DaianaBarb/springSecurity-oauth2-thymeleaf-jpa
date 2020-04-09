@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Gotu&display=swap" rel="stylesheet">
+<head>
+<link href="/css/styleautorizar.css" rel="stylesheet" />
+<link href="stylehome.css" type="text/css" rel="stylesheet"
+	media="screen" />
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<meta charset="UTF-8" />
+
+
+</head>
+<body>
+
+	<div id="con" class="container col-xs-12">
+       <div class="table-responsive">
+		<table class="table" id="table">
+			<thead>
+				<tr id="trr">
+					<th scope="col">Id</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Login</th>
+					<th scope="col">Logado</th>
+
+					<th scope="col">Permissão</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+
+				</tr>
+			</thead>
+			<tbody th:each="LoginEntity: ${logins}">
+				<tr id="trr">
+					<td style="cursor: pointer;"><span th:text="${LoginEntity.Id}"></span></td>
+					<td style="cursor: pointer;"><span
+						th:text="${LoginEntity.nome}"></span></td>
+					<td style="cursor: pointer;"><span
+						th:text="${LoginEntity.login}"> </span></td>
+					<td style="cursor: pointer;"><span
+						th:text="${LoginEntity.logado}"></span></td>
+					<td style="cursor: pointer;"><span
+						th:text="${LoginEntity.admin}"></span></td>
+					<td ><a class="btn btn-info"
+						th:href="@{/editarlogin/{id} (id=${LoginEntity.Id}) }"
+						role="button"> <span class="oi oi-brush" title="Editar"
+							aria-hidden="true"></span> Editar
+					</a></td>
+
+
+					<td id="excluir">
+						<button
+							th:id="${#strings.concat('btn_excluirlogin/'+ LoginEntity.id)}"
+							type="button" class="btn btn-danger" data-toggle="modal"
+							data-target="#myModal">
+							<span class="oi oi-circle-x" title="Exclusão desabilitada"
+								aria-hidden="true"></span> Excluir
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+</div>
+		<div th:replace="fragments/modal :: modal"></div>
+
+		<a class="btn btn-danger" href="/home" role="button">Voltar</a>
+		<div th:if="${msg}" style="margin-top: 20px;">
+				<span th:text="${msg}"></span>
+			</div>
+			<ul class="squares"></ul>
+	</div>
+
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+	
+	 var url='';
+	 $('button[id*="btn_"]').click(function(){
+		url="https://app-security-azul-java.herokuapp.com/" + $(this)
+		.attr('id').split("_")[1]; // indica a posição 1 do array a ser retornado
+	 })
+	 //dividiu em um array de duas partes e escolheu a parte numeero 1 que e depois do _
+	 $('#ok_confirm').click(function(){
+		document.location.href = url;
+	});
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		
+	 </script>
+
+	
+
+	<script type="text/javascript">
+      const ulSquares = document.querySelector(".squares");
+
+for(let i=0; i<15; i++){
+	const li = document.createElement("li");
+	
+	const random = (min, max) => Math.random()*(max-min)+min;
+	
+	const size = Math.floor(random(30,150));
+	const position = random(1,99);
+	const delay = random(5,0.1);
+	const duration = random(24,12);
+	
+	li.style.width = `${size}px`;
+	li.style.height = `${size}px`;
+	li.style.bottom = `-${size}px`;
+	li.style.left = `${position}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duration}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`;
+	
+	ulSquares.appendChild(li);
+}
+</script>
+</body>
+</html>

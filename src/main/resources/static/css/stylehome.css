@@ -1,0 +1,164 @@
+/*
+ * Base structure
+ */
+ @keyframes up
+ {from
+  { opacity:0;
+	transform: translateY(0);
+}
+
+50%{
+opacity:1;
+}
+to {
+	opacity: 0;
+	transform: translateY(-800px) rotate(960deg);
+}
+
+}
+.squares li {
+	z-index: 100;
+	background-color: #B0E0E6 !important;
+	position: absolute;
+	animation: up 2s infinite;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+ 
+html, body {
+	height: auto;
+}
+
+body {
+	padding-top: 56px;
+	padding-left: 0;
+}
+@keyframes up {
+from { 
+opacity:0;
+	transform: translateY(0);
+}
+
+50%{
+opacity
+:
+1;
+
+	
+}
+to {
+	opacity: 0;
+	transform: translateY(-800px) rotate(960deg);
+}
+
+}
+.squares li {
+	z-index: 100;
+	background-color: rgba(255, 255, 255, 0.15);
+	position: absolute;
+	animation: up 2s infinite;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+
+.navbar-nav li:hover {
+	background: #D9D9F3;
+	border-radius: 7px;
+	color: white;
+	-webkit-transition: 0.5s ease-out;
+-moz-transition: 0.5s ease-out;
+-o-transition: 0.5s ease-out;
+transition: 0.5s ease-out;
+}
+
+.navbar {
+	box-shadow: 3px 3px 3px red;
+}
+
+.navbar-nav {
+	box-shadow: 3px 3px 3px black;
+	
+}
+
+body {
+	background-image:
+		url('http://getwallpapers.com/wallpaper/full/d/9/f/1500090-ios-7-ipad-wallpapers-2048x2048-for-retina.jpg' );
+		
+}
+.login_btn{
+color: black;
+background-color:#1E90FF;;
+width: 100px;
+}
+#trr:hover {
+	background: #236B8E;
+	-webkit-transition: 0.5s ease-out;
+-moz-transition: 0.5s ease-out;
+-o-transition: 0.5s ease-out;
+transition: 0.5s ease-out;
+}
+
+.container {
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+	margin-top: 40px;
+	border-radius: 20px;
+	box-shadow: 3px 3px 3px black;
+	font-family: 'Gotu', sans-serif;
+}
+
+#nav {
+background:#236B8E;
+	border-radius: 10px;
+}
+
+.table {
+	color: white;
+}
+
+#s {
+	display: none;
+}
+#Butbusc{
+margin-top: -4px; margin-left: 5px;}
+#busc{
+margin-left: 400px;
+margin-top: 10px;}
+
+@media only screen and (max-width: 1000px) {
+.navbar-nav{width: 475px; font-size: 20px;}
+  #busc{
+    margin-left: 50px;
+   float: right;
+    }
+    #Butbusc{
+    float: right;
+     margin-top: -40px;
+    }
+    #editar{
+    height: 60px;}
+    
+
+ .container{
+ font-size: 20px;}
+a{
+font-size: 10px;}
+label,th{
+font-size: 20px;}
+  }
+  
+  @media(max-width: 700px){
+  #Butbusc{
+  margin-top: -90px;}
+ .login_btn{
+  height: 60px ;!important
+  
+  }
+  
+  }
+  

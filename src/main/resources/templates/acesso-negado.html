@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="/css/styleacesso.css" type="text/css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Gotu&display=swap" rel="stylesheet">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<meta charset="utf-8">
+<title>Acesso Negado</title>
+</head>
+<body style="background: #8B0000;">
+<div class="container">
+
+ <h1>Acesso Negado!</h1>
+ <h5>
+ <p>Prezado Usuário,</p>
+  <p>você não tem autorização para acessar este recurso.</p>
+  <p>
+ Porfavor verifique suas permissões de acesso.</p>
+ </h5>
+ <a class="btn btn-warning" href="/home">Voltar</a>
+  <ul class="squares"></ul>
+ </div>
+
+
+	<script type="text/javascript">
+      const ulSquares = document.querySelector(".squares");
+
+for(let i=0; i<15; i++){
+	const li = document.createElement("li");
+	
+	const random = (min, max) => Math.random()*(max-min)+min;
+	
+	const size = Math.floor(random(30,150));
+	const position = random(1,99);
+	const delay = random(5,0.1);
+	const duration = random(24,12);
+	
+	li.style.width = `${size}px`;
+	li.style.height = `${size}px`;
+	li.style.bottom = `-${size}px`;
+	li.style.left = `${position}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duration}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`;
+	
+	ulSquares.appendChild(li);
+}
+</script>
+</body>
+</html>

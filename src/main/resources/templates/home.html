@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http//www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Gotu&display=swap" rel="stylesheet">
+<link href="stylehome.css" type="text/css" rel="stylesheet"
+	media="screen" />
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+<link href="/css/stylehome.css" rel="stylesheet" />
+<meta charset="UTF-8" />
+
+
+
+</head>
+<body>
+
+	<div class="container col-xs-12">
+		<div style="margin-top: 10px; text-align: center;font-size: 20px; font-family: 'Gotu', sans-serif;">
+			<span th:text="${ms}"></span>
+		</div>
+		</br>
+		<nav class="navbar navbar-expand col-xs-12 " id="nav">
+			<h5>
+				<div class="collapse navbar-collapse col-xs-12" id="navbarNav">
+
+					<ul class="navbar-nav col-xs-12">
+						<li class="nav-item active"><a class="nav-link" href="/home"
+							style="color: black;">Atualizar | <span class="sr-only">(current)</span></a></li>
+						<li class="nav-item"><a class="nav-link" href="/autorizar"
+							style="color: black;">Autorizar Usuários | </a></li>
+							<li class="nav-item"><a class="nav-link" href="/cadastro-tela-home"
+							style="color: black;">Cadastrar Novo: Adm/User | </a></li>
+						<li class="nav-item"><a class="nav-link" href="/deslog"
+							style="color: black;">Sair do Sistema</a></li>
+					</ul>
+				</div>
+			</h5>
+		</nav>
+		</br>
+		<form th:object="${cadastro}" action="/salvar" method="Post"
+			name="cadastro">
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Nome:</label> <input id="nome"
+					type="Text" name="nome" class="form-control"
+					aria-describedby="emailHelp" required>
+
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">E-mail:</label> <input type="email"
+					name="email" class="form-control" id="email"
+					aria-describedby="emailHelp" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Senha:</label> <input
+					type="password" name="senha" class="form-control" id="senha"
+					required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Confirma Senha:</label> <input
+					type="password" name="confsenha" class="form-control" id="senha"
+					required>
+			</div>
+			<input class="btn btn-info" type="submit" value="Cadastrar">
+
+			<div th:if="${msg}" style="margin-top: 20px;">
+				<span th:text="${msg}"></span>
+			</div>
+			
+		</form>
+			<form id="busc" action="/buscar">
+
+			<label style=" margin-right: 5px; ">Buscar Usuário</label> <input name="nomepesquisa" type="text">
+			<input id="Butbusc" style="" class=" btn btn-info "type="submit" value="Buscar">
+		
+		</form>
+		</br>
+     <div class="table-responsive">
+		<table class="table" id="tab">
+			<thead>
+				<tr>
+
+					<th scope="col">Nome</th>
+					<th scope="col">Email</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+
+				</tr>
+			</thead>
+			<tbody th:each="CadastroEntity: ${Cadastros}">
+				<tr id="trr">
+
+					<td style="cursor: pointer;"><span
+						th:text="${CadastroEntity.nome}"></span></td>
+					<td style="cursor: pointer;"><span
+						th:text="${CadastroEntity.email}"></span></td>
+					<td style="cursor: pointer;" id="s"><span
+						th:text="${CadastroEntity.senha}"></span></td>
+					<td id="editar"><a class="btn login_btn"
+						th:href="@{/editar/{id} (id=${CadastroEntity.id}) }" role="button"
+						> <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+							Editar
+					</a></td>
+
+					<td id="excluir">
+						<button
+							th:id="${#strings.concat('btn_excluir/'+ CadastroEntity.id)  }"
+							type="button" class="btn btn-danger" data-toggle="modal"
+							data-target="#myModal" >
+							<span class="oi oi-circle-x" title="Excluir"
+								aria-hidden="true"></span> Excluir
+						</button>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+</div>
+		<div th:replace="fragments/modal :: modal"></div>
+		<a class="btn btn-info" href="/deslog" role="button">Sair do
+			Sistema</a>
+			<ul class="squares"></ul>
+	</div>
+	<br>
+	<br>
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+
+	
+	 var url='';
+	 $('button[id*="btn_"]').click(function(){
+		url="https://app-security-azul-java.herokuapp.com/" + $(this)
+		.attr('id').split("_")[1]; // indica a posição 1 do array a ser retornado
+	 })
+	 //dividiu em um array de duas partes e escolheu a parte numeero 1 que e depois do _
+	 $('#ok_confirm').click(function(){
+		document.location.href = url;
+	});
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		
+	 </script>
+
+	
+
+	<script type="text/javascript">
+      const ulSquares = document.querySelector(".squares");
+
+for(let i=0; i<15; i++){
+	const li = document.createElement("li");
+	
+	const random = (min, max) => Math.random()*(max-min)+min;
+	
+	const size = Math.floor(random(30,150));
+	const position = random(1,99);
+	const delay = random(5,0.1);
+	const duration = random(24,12);
+	
+	li.style.width = `${size}px`;
+	li.style.height = `${size}px`;
+	li.style.bottom = `-${size}px`;
+	li.style.left = `${position}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duration}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`;
+	
+	ulSquares.appendChild(li);
+}
+</script>
+</body>
+</html>

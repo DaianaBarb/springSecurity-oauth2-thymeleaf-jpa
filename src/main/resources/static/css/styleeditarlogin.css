@@ -1,0 +1,172 @@
+/*
+ * Base structure
+ */
+ @keyframes up
+ {from
+  { opacity:0;
+	transform: translateY(0);
+}
+
+50%{
+opacity:1;
+}
+to {
+	opacity: 0;
+	transform: translateY(-800px) rotate(960deg);
+}
+
+}
+.squares li {
+	z-index: 100;
+	background-color: #B0E0E6 !important;
+	position: absolute;
+	animation: up 2s infinite;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+ 
+html, body {
+	height: auto;
+}
+
+body {
+	padding-top: 56px;
+	padding-left: 0;
+}
+@keyframes up{
+	from{
+		opacity:0;
+		transform: translateY(0);
+	}
+	50%{
+		opacity:1;
+	}
+	to{
+		opacity:0;
+		transform: translateY(-800px) rotate(960deg);
+	}	
+}
+.squares li{
+	z-index: 100;
+	background-color: rgba(255,255,255,0.15);
+	position:absolute;
+	animation: up 2s infinite;
+	bottom:0; 
+	width: 40px;
+	height: 40px;
+	display:block;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+body{
+background-image:
+		url('http://getwallpapers.com/wallpaper/full/d/9/f/1500090-ios-7-ipad-wallpapers-2048x2048-for-retina.jpg' );
+background-size: auto;
+background-repeat: no-repeat;
+height:auto;
+font-family: 'Numans', sans-serif;
+
+}
+
+.container{
+padding: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	margin-top: 40px;
+	border-radius: 20px;
+	box-shadow: 3px 3px 3px black;
+	width: 600px;
+	font-family: 'Gotu', sans-serif;
+}
+.login_btn{
+color: black;
+background-color: #1E90FF;
+width: 100px;
+}
+
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #1E90FF;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+
+}
+
+form{margin-top: -70px;}
+
+.social_icon{
+position: relative;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color:#1E90FF;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+@media only screen and (max-width: 1200px) {
+#con {
+margin-top: 200px;
+width: 800px;
+height: 800px;
+font-size: 24px;
+margin-bottom: 200px;
+justify-content: center ;
+}
+#fo{
+width: 690px;
+margin-top: -90px;
+
+}
+}
+@media(max-width: 700px){
+  #fo{width: 500px;
+  }
+  
+  }
